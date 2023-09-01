@@ -3,6 +3,7 @@ import {
   Controller,
   Delete,
   Get,
+  Injectable,
   Param,
   Post,
   Put,
@@ -11,9 +12,10 @@ import { UsersService } from "./shared/user.service";
 import { User } from "./shared/user";
 
 @Controller("users")
+@Injectable()
 export class UsersController {
 
-  constructor(private readonly usersService: UsersService) {}
+  constructor(public usersService: UsersService) {}
 
   @Get()
   async getAll(): Promise<User[]> {

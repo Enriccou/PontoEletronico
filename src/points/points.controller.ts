@@ -7,9 +7,9 @@ export class PointsController {
 
         constructor(private pointService: PointService) {}
 
-        @Get('/all/:id')
-        async getAll(@Param('id') id: string): Promise<Point[]> {
-            return this.pointService.getAll(id);
+        @Get()
+        async getAll(): Promise<Point[]> {
+            return this.pointService.getAll();
         }
 
         @Get(':id')

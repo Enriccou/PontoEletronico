@@ -5,12 +5,10 @@ import { Point } from "./point";
 
 @Injectable()
 export class PointService {
-  constructor(
-    @InjectModel("Point") private readonly pointModel: Model<Point>
-  ) {}
+  constructor(@InjectModel("Point") public pointModel: Model<Point>) {}
 
-  async getAll(id: string) {
-    return await this.pointModel.find().exec();
+  async getAll() {
+      return await this.pointModel.find().exec();
   }
 
   async getById(id: string) {

@@ -2,10 +2,13 @@ import { Injectable } from "@nestjs/common";
 import { User } from "./user";
 import { InjectModel } from "@nestjs/mongoose";
 import { Model } from "mongoose";
+export const userModel = "User";
 
 @Injectable()
 export class UsersService {
-  constructor(@InjectModel("User") private readonly userModel: Model<User>) {}
+
+  constructor(@InjectModel("User") public userModel: Model<User>) {}
+
 
   async getAll() {
     return await this.userModel.find().exec();
